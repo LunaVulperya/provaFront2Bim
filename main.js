@@ -63,14 +63,13 @@ const pesquisarCEP = async() => {
 document.getElementById('cep').addEventListener('focusout', pesquisarCEP);
 
 function armazenaAjuda(name,tipoAjuda,desc,cepCad,rua,numeroRua,bairro,cidade,estado,email,telefone) {
-    info.push({ name: name, tipoAjuda: tipoAjuda, desc: desc, cepCad: cepCad, rua: rua+', '+numeroRua, bairro:bairro, cidade: cidade, estado: estado, email: email, telefone:telefone});
+    info.push({ name: name, tipoAjuda: tipoAjuda, desc: desc, cepCad: cepCad, rua: rua,numeroRua: numeroRua, bairro:bairro, cidade: cidade, estado: estado, email: email, telefone:telefone});
     const infoString = JSON.stringify(info);
     localStorage.setItem('info', infoString);
-    window.location.href = "./ajuda.html";
+    window.location.href = "ajuda.html";
 }
 
-document.getElementById('cadastro-form').addEventListener('submit', function(event){
-    event.preventDefault;
+function cadastrar(){
     let nameInput = document.getElementById('nome');
     let tipoAjudaInput = document.getElementById('tipoAjuda');
     let descInput = document.getElementById('desc');
@@ -94,16 +93,4 @@ document.getElementById('cadastro-form').addEventListener('submit', function(eve
     let email = emailInput.value;
     let telefone = telefoneInput.value;
     armazenaAjuda(name,tipoAjuda,desc,cepCad,rua,numeroRua,bairro,cidade,estado,email,telefone);
-    // let nameInput = "";
-    // let tipoAjudaInput = "";
-    // let descInput = "";
-    // let cepInput = "";
-    // let ruaInput = "";
-    // let numeroRuaInput = "";
-    // let bairroInput = "";
-    // let cidadeInput = "";
-    // let estadoInput = "";
-    // let emailInput = "";
-    // let telefoneInput = "";*/
-    
-});
+}
