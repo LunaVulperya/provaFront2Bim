@@ -62,8 +62,8 @@ const pesquisarCEP = async() => {
 
 document.getElementById('cep').addEventListener('focusout', pesquisarCEP);
 
-function armazenaAjuda(name,tipoAjuda,desc,cepCad,rua,numeroRua,bairro,cidade,estado,email,telefone) {
-    info.push({ name: `Nome: ${name}`, tipoAjuda: `Tipo de Ajuda: ${tipoAjuda}`,
+function armazenaAjuda(titulo,name,tipoAjuda,desc,cepCad,rua,numeroRua,bairro,cidade,estado,email,telefone) {
+    info.push({ titulo: `${titulo}`,name: `Nome: ${name}`, tipoAjuda: `Tipo de Ajuda: ${tipoAjuda}`,
     desc: `Descrição: ${desc}`, cepCad: `CEP: ${cepCad}`, rua: `${rua}, nº${numeroRua}`,
     bairro:`Bairro: ${bairro}`, cidade:`Nome: ${cidade},${estado}`,
     email: `Email: ${email}`, telefone:`Telefone: ${telefone}`});
@@ -111,5 +111,5 @@ function cadastrar(){
     } else if(tipoAjuda == 'outros'){
         tipoAjuda = document.getElementById('outros').textContent;
     }
-    armazenaAjuda(name,tipoAjuda,desc,cepCad,rua,numeroRua,bairro,cidade,estado,email,telefone);
+    armazenaAjuda(titulo,name,tipoAjuda,desc,cepCad,rua,numeroRua,bairro,cidade,estado,email,telefone);
 }
