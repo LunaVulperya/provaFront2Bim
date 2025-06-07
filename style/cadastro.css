@@ -219,7 +219,7 @@ nav a{
     width: 50%;
 }
 
-#cidade-form, #bairro-form, #ajuda-form{
+#cidade-form, #bairro-form, #ajuda-form, #titulo-form{
     width: 33%;
     padding-right: 3rem;
 }
