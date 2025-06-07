@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='./style/cadastro.css'>
+    
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <div class="banner-content">
+                <nav>
+                    <a href="./index.html">Home Page</a>
+                    <a href="./index.html#local">Produtos</a>
+                    <a href="#quemsomos">Sobre</a>
+                    <a href="./cadastro.html">Cadastre-se</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container-cadastro">
+            <form action="." id="cadastro-form">
+                <div class="mb-3">
+                  <label for="nome" class="form-label" id="nome-form">Insira o nome de sua Instituição:
+                  <input type="text" name="nome" class="form-control" id="nome"></label>               
+                </div>
+                <div class="mb-3">
+                    <label for="ajuda" class="form-label" id="ajuda-form">Insira o tipo de ajuda:
+                    <select id="tipoAjuda">
+                        <option value="edu">Educação</option>
+                        <option value="saude">Saúde</option>
+                        <option value="ambiente">Meio Ambiente</option>
+                        <option value="alimento">Doação de Alimentos</option>
+                        <option value="roupa">Doação de Roupas</option>
+                        <option value="outro">Outros</option>
+                    </select></label>          
+                </div>
+                <div class="mb-3">
+                  <label for="desc" class="form-label">Descrição:</label>
+                  <textarea name="desc" id="desc" class="form-control" rows="5" placeholder="Insira uma Descrição detalhada da tarefa"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="cep" class="form-label" id="cep-form">CEP:
+                    <input type="text" name="cep" class="form-control" id="cep" onkeypress="return somenteNumeros(event)"></label>                  
+                </div>
+                <div class="mb-3">
+                    <label for="rua" class="form-label" id="rua-form">Logradouro:
+                    <input type="text" name="rua" class="form-control" id="rua"></label>
+                    <label for="numero" class="form-label" id="numero-form">Número:
+                    <input type="text" name="numero" class="form-control" id="numero" onkeypress="return somenteNumeros(event)"></label>              
+                </div>
+                <div class="mb-3">
+                    <label for="bairro" class="form-label" id="bairro-form">Bairro:
+                    <input type="text" name="bairro" class="form-control" id="bairro"></label>               
+                </div>
+                <!-- <div class="mb-3">
+                    <label for="cidade" class="form-label">Cidade:</label>
+                    <input type="text" name="cidade" class="form-control" id="cidade">                
+                </div> -->
+                <div class="mb-3">
+                    <label for="cidade" class="form-label" id="cidade-form">Cidade:
+                    <input type="text" name="cidade" class="form-control" id="cidade"></label>
+                    <label for="estado" class="form-label" id="estado-form">Estado:
+                    <input type="text" name="estado" class="form-control" id="estado"></label>              
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email para contato:</label>
+                    <input type="email" name="email" class="form-control" id="email">                
+                </div>
+                <div class="mb-3">
+                    <label for="telefone" class="form-label">Telefone:</label>
+                    <input type="tel" name="telefone" class="form-control" id="telefone">                
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar-se</button>
+              </form>
+
+
+        </div>
+        <!-- <form method="get" action=".">
+            <label>Cep:
+            <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                   onblur="pesquisacep(this.value);" /></label><br />
+            <label>Rua:
+            <input name="rua" type="text" id="rua" size="60" /></label><br />
+            <label>Bairro:
+            <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+            <label>Cidade:
+            <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+            <label>Estado:
+            <input name="uf" type="text" id="uf" size="2" /></label><br />
+            <label>IBGE:
+            <input name="ibge" type="text" id="ibge" size="8" /></label><br />
+          </form> -->
+    </main>
+    <footer>
+        <p>&copy; 2025 Moontech.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src='main.js'></script>
+</body>
+</html>
