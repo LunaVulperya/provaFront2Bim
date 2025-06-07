@@ -63,7 +63,10 @@ const pesquisarCEP = async() => {
 document.getElementById('cep').addEventListener('focusout', pesquisarCEP);
 
 function armazenaAjuda(name,tipoAjuda,desc,cepCad,rua,numeroRua,bairro,cidade,estado,email,telefone) {
-    info.push({ name: name, tipoAjuda: tipoAjuda, desc: desc, cepCad: cepCad, rua: rua,numeroRua: numeroRua, bairro:bairro, cidade: cidade, estado: estado, email: email, telefone:telefone});
+    info.push({ name: `Nome: ${name}`, tipoAjuda: `Tipo de Ajuda: ${tipoAjuda}`,
+    desc: `Descrição: ${desc}`, cepCad: `CEP: ${cepCad}`, rua: `${rua}, nº${numeroRua}`,
+    bairro:`Bairro: ${bairro}`, cidade:`Nome: ${cidade},${estado}`,
+    email: `Email: ${email}`, telefone:`Telefone: ${telefone}`});
     const infoString = JSON.stringify(info);
     localStorage.setItem('info', infoString);
     window.location.href = "ajuda.html";
@@ -72,6 +75,7 @@ function armazenaAjuda(name,tipoAjuda,desc,cepCad,rua,numeroRua,bairro,cidade,es
 function cadastrar(){
     let nameInput = document.getElementById('nome');
     let tipoAjudaInput = document.getElementById('tipoAjuda');
+    let tituloInput = document.getElementById('titulo');
     let descInput = document.getElementById('desc');
     let cepInput = document.getElementById('cep');
     let ruaInput = document.getElementById('rua');
@@ -83,6 +87,7 @@ function cadastrar(){
     let telefoneInput = document.getElementById('telefone');
     let name = nameInput.value;
     let tipoAjuda = tipoAjudaInput.value;
+    let titulo = tituloInput.value;
     let desc = descInput.value;
     let cepCad = cepInput.value;
     let rua = ruaInput.value;
@@ -92,5 +97,19 @@ function cadastrar(){
     let estado = estadoInput.value;
     let email = emailInput.value;
     let telefone = telefoneInput.value;
+
+    if(tipoAjuda == 'edu'){
+        tipoAjuda = document.getElementById('edu').textContent;
+    } else if(tipoAjuda == 'saude'){
+        tipoAjuda = document.getElementById('saude').textContent;
+    } else if(tipoAjuda == 'ambiente'){
+        tipoAjuda = document.getElementById('ambiente').textContent;
+    } else if(tipoAjuda == 'alimento'){
+        tipoAjuda = document.getElementById('alimento').textContent;
+    } else if(tipoAjuda == 'roupa'){
+        tipoAjuda = document.getElementById('roupa').textContent;
+    } else if(tipoAjuda == 'outros'){
+        tipoAjuda = document.getElementById('outros').textContent;
+    }
     armazenaAjuda(name,tipoAjuda,desc,cepCad,rua,numeroRua,bairro,cidade,estado,email,telefone);
 }
