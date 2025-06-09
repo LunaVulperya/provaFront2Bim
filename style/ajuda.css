@@ -282,7 +282,7 @@ footer {
 }
 
 /*estilo de responsividade*/
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     main {
         width: 80%;
     }
