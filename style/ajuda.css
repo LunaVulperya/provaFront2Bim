@@ -14,6 +14,8 @@
     color: #ffffff;
 }
 
+
+/* did this so the footer would stick to the bottom regardless of the page height */
 html, body {
     height: 100%;
     margin: 0;
@@ -29,15 +31,70 @@ main {
     margin: auto;
 }
 
-.container-cadastro {
-    width: 90%;
-    margin: 0 auto;
-    padding: 15px;
-    border-radius: 10px;
-    /* background-color: rgb(247, 75, 112); */
-    align-content: center;
+.search-container {
+    display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    max-width: 400px;
+    gap: 0.5rem;
 }
+
+/* Search input */
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 2px solid #4684E4;
+    background-color: #1E1E1E;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: #777;
+}
+
+.search-input:focus {
+    border-color: #D94A3C; /* highlight color */
+}
+
+/* Search button */
+.search-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4684E4;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #2C63B6;
+    color: #fff;
+}
+
+.help-card {
+    background-color: #2C2C2C;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    outline: 2px solid #4684E4;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.help-card p:first-of-type {
+    font-size: 2rem; /* or whatever size looks good */
+    font-weight: bolder;  /* Optional: makes it bold like a title */
+    margin-bottom: 1rem; /* Optional: adds space below the title */
+}
+
 
 input {
     /* background-color: rgb(253, 145, 111) !important; */
@@ -178,14 +235,6 @@ nav a{
     text-align: center;
 }
 
-#p1{
-    outline: 2px solid #D94A3C;
-}
-
-#p2{
-    outline: 2px solid #39A557;
-}
-
 .photo{
     max-width: 50%;
     max-height: auto;
@@ -222,41 +271,6 @@ nav a{
     margin-bottom: 10px;
     line-height: 1.5;
     
-}
-
-#nome-form{
-    width: 50%;
-}
-
-#cidade-form, #bairro-form, #ajuda-form, #titulo-form{
-    width: 33%;
-    padding-right: 3rem;
-}
-
-#estado-form{
-    width: 16%;
-}
-
-#telefone{
-    width:14%;
-}
-
-#email{
-    width: 40%;
-}
-
-#cep-form{
-    width:10%;
-}
-
-#rua-form{
-    width: 80%;
-    padding-right: 3rem;
-}
-
-#numero-form{
-    width: 7.2%;
-    padding-top: 1rem;
 }
 
 footer {

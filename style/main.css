@@ -11,10 +11,20 @@
     color: #ffffff;
 }
 
-main{
-    margin: auto;
+/* did this so the footer would stick to the bottom regardless of the page height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
     width: 90%;
     max-width: 1200px;
+    margin: auto;
 }
 
 .card-intro{
@@ -177,12 +187,11 @@ nav a{
     
 }
 
-footer{
+footer {
     padding: 1rem 0;
     background-color: #43395c;
-    color:white;
+    color: white;
     font-weight: bold;
-    justify-content: center;
     text-align: center;
 }
 
