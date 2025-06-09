@@ -42,30 +42,43 @@ function createMain(arrayMestre) {
     return main;
 }
 
+// Get reference to footer
+const footer = document.querySelector('footer');
+
 const newMain = createMain(master);
-document.body.appendChild(newMain);
 
 const searchContainer = document.createElement('div');
+searchContainer.classList.add('search-container');  // add the container class
+
 searchContainer.innerHTML = `
-    <input type="text" id="searchInput" placeholder="Search by name, city, etc...">
-    <button id="searchButton">Search</button>
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Procure por Nome, Cidade, etc..." 
+        class="search-input">
+    
+    <button 
+        id="searchButton" 
+        class="search-button">
+    
+        Procurar
+    </button>
 `;
-document.body.prepend(searchContainer);
+
+// Insert search bar and main before the footer
+document.body.insertBefore(searchContainer, footer);
+document.body.insertBefore(newMain, footer);
 
 
 
 //Tried making a search 'engine' so it "recreates" the main with only the divs from the search
 function filterMasterArray(query, masterArray) {
     const lowerQuery = query.toLowerCase();
-    return masterArray.filter(subArray => {
-        return subArray.some(obj => {
-            if (typeof obj === 'object') {
-                return Object.values(obj).some(value =>
-                    String(value).toLowerCase().includes(lowerQuery)
-                );
-            }
-            return false;
-        });
+    return masterArray.filter(item => {
+        // item is a flat object, so check all values directly
+        return Object.values(item).some(value =>
+            String(value).toLowerCase().includes(lowerQuery)
+        );
     });
 }
 
@@ -76,11 +89,18 @@ function renderMain(arrayMestre) {
     }
 
     const newMain = createMain(arrayMestre);
-    document.body.appendChild(newMain);
+    document.body.insertBefore(newMain, footer);
 }
 
 document.getElementById('searchButton').addEventListener('click', () => {
     const query = document.getElementById('searchInput').value;
+    const filtered = filterMasterArray(query, master);
+    renderMain(filtered);
+});
+
+//this is live search, it may or not be wonky as hell
+document.getElementById('searchInput').addEventListener('input', (event) => {
+    const query = event.target.value;
     const filtered = filterMasterArray(query, master);
     renderMain(filtered);
 });
