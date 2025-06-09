@@ -1,3 +1,4 @@
+let master = JSON.parse(localStorage.getItem('master')) || []; //Just to check if the array is empty or not, so no errors probably?
 var info = [];
 
 //Impede caracteres alem de numeros de serem digitados
@@ -62,13 +63,22 @@ const pesquisarCEP = async() => {
 
 document.getElementById('cep').addEventListener('focusout', pesquisarCEP);
 
-function armazenaAjuda(titulo,name,tipoAjuda,desc,cepCad,rua,numeroRua,bairro,cidade,estado,email,telefone) {
-    info.push({ titulo: `${titulo}`,name: `Nome: ${name}`, tipoAjuda: `Tipo de Ajuda: ${tipoAjuda}`,
-    desc: `Descrição: ${desc}`, cepCad: `CEP: ${cepCad}`, rua: `${rua}, nº${numeroRua}`,
-    bairro:`Bairro: ${bairro}`, cidade:`Nome: ${cidade},${estado}`,
-    email: `Email: ${email}`, telefone:`Telefone: ${telefone}`});
-    const infoString = JSON.stringify(info);
-    localStorage.setItem('info', infoString);
+function armazenaAjuda(titulo, name, tipoAjuda, desc, cepCad, rua, numeroRua, bairro, cidade, estado, email, telefone) {
+    const info = {
+        titulo: `${titulo}`,
+        name: `Nome: ${name}`,
+        tipoAjuda: `Tipo de Ajuda: ${tipoAjuda}`,
+        desc: `Descrição: ${desc}`,
+        cepCad: `CEP: ${cepCad}`,
+        rua: `${rua}, nº${numeroRua}`,
+        bairro: `Bairro: ${bairro}`,
+        cidade: `Nome: ${cidade},${estado}`,
+        email: `Email: ${email}`,
+        telefone: `Telefone: ${telefone}`
+    };
+
+    master.push(info); // Push the object directly (not inside an array, not making that mistake again, way too many bugs)
+    localStorage.setItem('master', JSON.stringify(master));
     window.location.href = "ajuda.html";
 }
 
