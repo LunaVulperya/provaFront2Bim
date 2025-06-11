@@ -15,12 +15,12 @@ console.log(master);
 //Creates the divs itself, and includes p tag for each entry, although didnt discover how to make multiple arrays in an array yet
 function createDivP(paragrafo) {
     const div = document.createElement('div');
-    div.classList.add('help-card'); // ✅ add the styling class
+    div.classList.add('help-card'); // add the styling class
 
     for (const key in paragrafo) {
         if (paragrafo.hasOwnProperty(key)) {
             const p = document.createElement('p');
-            p.classList.add('paragraph_about'); // Optional: apply your spacing class
+            p.classList.add('paragraph_about');
             p.textContent = paragrafo[key];
             div.appendChild(p);
         }
