@@ -63,6 +63,7 @@ const pesquisarCEP = async() => {
 
 document.getElementById('cep').addEventListener('focusout', pesquisarCEP);
 
+//Funtion to make the object and redirect to the help page
 function armazenaAjuda(titulo, name, tipoAjuda, desc, cepCad, rua, numeroRua, bairro, cidade, estado, email, telefone) {
     const info = {
         titulo: `${titulo}`,
@@ -82,6 +83,8 @@ function armazenaAjuda(titulo, name, tipoAjuda, desc, cepCad, rua, numeroRua, ba
     window.location.href = "ajuda.html";
 }
 
+
+//Function to get the values to make the object
 function cadastrar(){
     let nameInput = document.getElementById('nome');
     let tipoAjudaInput = document.getElementById('tipoAjuda');
